@@ -53,10 +53,12 @@ public class Cart extends AppCompatActivity {
                 orderDetails.setPhone(Integer.parseInt(phone.getText().toString()));
 
                 HashMap<String,Integer> hashMap=new HashMap<>();
+                HashMap<String,Object> hashimage=new HashMap<>();
 
                 if(noofkadhai!=0)
                 {
                     hashMap.put("Stain less Kadhai",noofhandi);
+                    hashimage.put("Stain less Kadhai",R.drawable.kadai);
 
                     a=a+noofkadhai*200;
                 }
@@ -64,11 +66,13 @@ public class Cart extends AppCompatActivity {
                 if(noofhandi!=0)
                 {
                     hashMap.put("Handi with Copper base",noofhandi);
+                    hashimage.put("Handi with copper base",R.drawable.handi);
                     a=a+noofhandi*300;
                 }
                 if(nooftops!=0)
                 {
                     hashMap.put("Set Of Tops",nooftops);
+                    hashimage.put("Set Of Tops",R.drawable.stainless);
                     a=a+nooftops*800;
                 }
 
