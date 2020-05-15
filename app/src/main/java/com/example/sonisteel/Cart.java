@@ -16,9 +16,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Cart extends AppCompatActivity {
+
+   // ArrayList myQuantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +84,26 @@ public class Cart extends AppCompatActivity {
 
                 dr.child("Order").setValue(orderDetails);
 
+                Set<String> keySet = hashMap.keySet();
+                ArrayList<String> myProducts = new ArrayList<String>(keySet);
+
+                Collection<Integer> values = hashMap.values();
+                ArrayList<Integer> myQuantity = new ArrayList<Integer>(values);
+
+
+
+                 Intent intent=new Intent(Cart.this,BillingActivity.class);
+                 intent.putExtra("ProductList",myProducts);
+                intent.putExtra("QuantityList",myQuantity);
+                startActivity(intent);
+
+
+
             }
         });
+
+
+
 
 
 
