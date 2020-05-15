@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "399934968672",
+    "firebase_url": "https://sonisteel-14c5c.firebaseio.com",
+    "project_id": "sonisteel-14c5c",
+    "storage_bucket": "sonisteel-14c5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399934968672:android:c32ef5fbb826b6e088c405",
+        "android_client_info": {
+          "package_name": "com.example.sonisteel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399934968672-kagpbiq1bueeis9a268a5v1mkro7dvd0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sonisteel",
+            "certificate_hash": "aa9097fca6985bc90599a800c3cf6aac740daf7a"
+          }
+        },
+        {
+          "client_id": "399934968672-8meqmqqqep9ckjo2op85vpsj82ea73ja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI5Se7A8FH-TLpKrUGSMO397c3Cj47j-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399934968672-8meqmqqqep9ckjo2op85vpsj82ea73ja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
