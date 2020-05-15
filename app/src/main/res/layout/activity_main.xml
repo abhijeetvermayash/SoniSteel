@@ -13,12 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="50sp"
         android:src="@drawable/cart"
         android:padding="20sp"
         android:elevation="6dp"
         android:background="@color/colorPrimary"
-        android:id="@+id/fab1"
-        android:layout_margin="32dp"/>
+        android:id="@+id/fab1" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -232,7 +233,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Set Of Saucepan"
+                    android:text="Set Of Tops"
                     android:layout_marginLeft="20sp"
                     android:id="@+id/name2"
                     android:textSize="20dp"
