@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -44,6 +45,9 @@ public class Cart extends AppCompatActivity {
         final Button button;
         ListView lst;
         TextView txt;
+        final RadioButton cod,upi;
+
+
 
         name=findViewById(R.id.e1);
         add=findViewById(R.id.e2);
@@ -51,6 +55,9 @@ public class Cart extends AppCompatActivity {
         button=findViewById(R.id.btn);
         lst=findViewById(R.id.lst);
         txt=findViewById(R.id.totp);
+        cod=findViewById(R.id.cod);
+        upi=findViewById(R.id.upi);
+
 
         int a=0;
 
@@ -128,10 +135,22 @@ public class Cart extends AppCompatActivity {
                     a=a+nooftops*800;
                 }
 
+
                 orderDetails.setHm(hashMap);
                 orderDetails.setTotal(a);
+                if(cod.isChecked())
+                {
+                    orderDetails.setModeOfPayment("Cash On Delivery");
+                }
+                if(upi.isChecked())
+                {
+                    orderDetails.setModeOfPayment("Payment Through UPI");
+                }
 
                 dr.child("Order").setValue(orderDetails);
+
+                Intent i=new Intent(Cart.this,OrderPlaced.class);
+                startActivity(i);
 
             }
         });

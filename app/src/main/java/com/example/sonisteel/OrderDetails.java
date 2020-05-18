@@ -9,8 +9,15 @@ public class OrderDetails {
     private int phone;
     private HashMap<String,Integer> hm;
     private int Total;
+    private String ModeOfPayment;
 
+    public String getModeOfPayment() {
+        return ModeOfPayment;
+    }
 
+    public void setModeOfPayment(String modeOfPayment) {
+        ModeOfPayment = modeOfPayment;
+    }
 
     public OrderDetails() {
     }
