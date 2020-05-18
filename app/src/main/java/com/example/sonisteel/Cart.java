@@ -147,7 +147,7 @@ public class Cart extends AppCompatActivity {
                     orderDetails.setModeOfPayment("Payment Through UPI");
                 }
 
-                dr.child("Order").setValue(orderDetails);
+                dr.push().setValue(orderDetails);
 
                 Intent i=new Intent(Cart.this,OrderPlaced.class);
                 startActivity(i);
