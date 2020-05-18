@@ -6,10 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".Cart">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Summary"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:id="@+id/osum"/>
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="230dp"
+                android:layout_below="@+id/osum"
+                android:id="@+id/lst"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:layout_below="@+id/lst"
+                android:text="Total Price"
+                android:id="@+id/ttl"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="total price"
+                android:id="@+id/totp"
+                android:layout_toRightOf="@+id/ttl"
+                android:layout_below="@id/lst"
+                android:layout_marginTop="20sp"
+                android:layout_marginLeft="150dp"/>
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/t1"
+        android:layout_below="@+id/ttl"
         android:text="Please Enter Your Details"
         android:textColor="#000"
         android:layout_marginTop="20dp"/>
@@ -61,6 +105,29 @@
         android:layout_below="@id/txt3"
         android:layout_marginTop="10dp"
         android:id="@+id/e3"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT MODE OF PAYMENT"
+        android:layout_below="@+id/e3"
+        android:textColor="#000"
+        android:id="@+id/txpay"
+        android:layout_marginTop="20sp"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txpay"
+        android:layout_marginTop="10dp"
+        android:id="@+id/cod"
+        android:text="Cash On Delivery"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cod"
+        android:layout_marginTop="10dp"
+        android:id="@+id/upi"
+        android:text="Pay Through UPI"/>
+
 
     <Button
         android:layout_width="wrap_content"
@@ -70,6 +137,14 @@
         android:layout_marginTop="300dp"
         android:layout_marginLeft="250dp"
         android:id="@+id/btn"/>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+
 
 
 

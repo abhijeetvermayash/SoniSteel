@@ -167,7 +167,7 @@ fb.setOnClickListener(new View.OnClickListener() {
             dr.setValue(co);
         }
         Intent i=new Intent(MainActivity.this,Cart.class);
-        i.putExtra("STAINLESSKADHAI",Integer.parseInt(quan2.getText().toString()));
+        i.putExtra("STAINLESSKADHAI",Integer.parseInt(quan1.getText().toString()));
         i.putExtra("SETOFTOPS",Integer.parseInt(quan2.getText().toString()));
         i.putExtra("HANDI",Integer.parseInt(quan3.getText().toString()));
 
