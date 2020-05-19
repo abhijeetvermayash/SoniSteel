@@ -67,7 +67,7 @@ public class Cart extends AppCompatActivity {
         {
             HashMap<String,String> hm=new HashMap<>();
             hm.put("Product name","Stainless Kadhai");
-            hm.put("Quantity","1");
+            hm.put("Quantity",Integer.toString(noofkadhai));
             hm.put("image",Integer.toString(R.drawable.kadai));
             alist.add(hm);
             a=a+noofhandi*200;
@@ -141,16 +141,26 @@ public class Cart extends AppCompatActivity {
                 if(cod.isChecked())
                 {
                     orderDetails.setModeOfPayment("Cash On Delivery");
+                    dr.push().setValue(orderDetails);
+
+                    Intent i=new Intent(Cart.this,OrderPlaced.class);
+                    startActivity(i);
                 }
                 if(upi.isChecked())
                 {
-                    orderDetails.setModeOfPayment("Payment Through UPI");
+                    Intent i=new Intent(Cart.this,UPIpage.class);
+                    i.putExtra("STAINLESSKADHAI",noofkadhai);
+                    i.putExtra("SETOFTOPS",nooftops);
+                    i.putExtra("HANDI",noofhandi);
+                    i.putExtra("NAME",name.getText().toString());
+                    i.putExtra("ADDRESS",add.getText().toString());
+                    i.putExtra("PHONE",Integer.parseInt(phone.getText().toString()));
+                    i.putExtra("TOTALCOST",a);
+                    startActivity(i);
+
                 }
 
-                dr.push().setValue(orderDetails);
 
-                Intent i=new Intent(Cart.this,OrderPlaced.class);
-                startActivity(i);
 
             }
         });
