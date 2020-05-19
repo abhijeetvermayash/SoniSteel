@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".First">
+    tools:context=".First"
+    android:background="@drawable/pinkbg"
+
+    >
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Adimin login"
         android:id="@+id/adminlogin"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
         android:layout_marginTop="300dp"
-        />
+        android:layout_marginBottom="20dp"
+        android:text="Admin login"
+        android:background="#ffffff"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Customer"
         android:id="@+id/customer"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
         android:layout_marginTop="380dp"
-        />
+        android:background="#ffffff"
 
-</RelativeLayout>
+        android:text="Customer" />
+
+</LinearLayout>

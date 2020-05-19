@@ -1,13 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardElevation="4dp"/>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="name"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/nameis"
-        android:layout_marginTop="20dp"/>
-</RelativeLayout>
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/txtv1"
+            android:text="Name: "
+
+            />
+
+        <TextView
+            android:id="@+id/nameis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            android:text="name" />
+</LinearLayout>
+
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+
+      <TextView
+
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:id="@+id/txtv2"
+          android:text="Address:  "
+
+          />
+
+
+
+    <TextView
+        android:id="@+id/addis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="address" />
+  </LinearLayout>
+
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:id="@+id/txtv3"
+        android:text="Phone Number: "
+
+        />
+
+
+    <TextView
+        android:id="@+id/phoneis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="phone" />
+
+
+
+   </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/txtv4"
+            android:text="Total Price: "
+
+            />
+
+
+        <TextView
+        android:id="@+id/totalis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="totalPrice" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/txtv5"
+            android:text="Payment Mode: "
+
+            />
+
+
+
+        <TextView
+        android:id="@+id/paymentmodeis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Payment" />
+
+
+    </LinearLayout>
+    
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:background="#c0c0c0"
+        />
+
+</LinearLayout>

@@ -1,5 +1,8 @@
 package com.example.sonisteel;
 
+import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class OrderDetails {
@@ -11,6 +14,7 @@ public class OrderDetails {
     private int Total;
     private String ModeOfPayment;
 
+
     public String getModeOfPayment() {
         return ModeOfPayment;
     }
@@ -20,6 +24,12 @@ public class OrderDetails {
     }
 
     public OrderDetails() {
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     public String getName() {
@@ -61,5 +71,9 @@ public class OrderDetails {
     public void setHm(HashMap<String, Integer> hm) {
         this.hm = hm;
     }
+
+
+
 }
+
 

@@ -2,6 +2,7 @@ package com.example.sonisteel;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import static com.example.sonisteel.OrderAdapter.*;
 
 public class SeeDetails extends AppCompatActivity {
 
@@ -46,9 +49,11 @@ public class SeeDetails extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                 OrderDetails order=dataSnapshot1.getValue(OrderDetails.class);
+
                 orderDetails.add(order);
             }
             orderAdapter=new OrderAdapter(SeeDetails.this,orderDetails);
+            new ItemTouchHelper(itemTouch).attachToRecyclerView(recyclerView);
             recyclerView.setAdapter(orderAdapter);
         }
 
@@ -57,4 +62,22 @@ public class SeeDetails extends AppCompatActivity {
 
         }
     };
+
+    ItemTouchHelper.SimpleCallback itemTouch =new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            orderDetails.remove(viewHolder.getAdapterPosition());
+            orderAdapter.notifyDataSetChanged();
+
+
+
+        }
+    };
+
+
 }

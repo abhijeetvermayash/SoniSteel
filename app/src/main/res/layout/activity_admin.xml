@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blackresize"
+    android:background="@drawable/signinbgnew"
     android:orientation="vertical"
     tools:context=".Admin"
     >
@@ -36,7 +36,7 @@
         android:layout_marginBottom="30sp"
         android:layout_marginLeft="80sp"
         
-        android:textColorHint="#FFFFFF">
+        android:textColorHint="#000000">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
         android:layout_width="150dp"
         android:layout_height="51dp"
         android:layout_marginLeft="150sp"
-        android:background="@drawable/grad"
+
 
 
         android:text="SIGN-IN" />
