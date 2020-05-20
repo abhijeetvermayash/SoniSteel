@@ -17,6 +17,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder>{
 
@@ -52,6 +55,18 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         holder.total.setText( "" +   orderDetails.getTotal());
         holder.payment.setText(orderDetails.getModeOfPayment());
 
+        HashMap<String,Integer> hm=orderDetails.getHm();
+        //holder.products.setText(hm.toString());
+        Set keys=hm.keySet();
+        for(Iterator i=keys.iterator();i.hasNext();)
+        {
+            String key=(String)i.next();
+            int value=(Integer)hm.get(key);
+            holder.products.append(key+" -----> "+value+"\n");
+        }
+
+
+
 
 
 
@@ -68,6 +83,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name,address,phone,total,payment;
+        TextView products;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +92,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
             phone=itemView.findViewById(R.id.phoneis);
             total=itemView.findViewById(R.id.totalis);
             payment=itemView.findViewById(R.id.paymentmodeis);
+            products=itemView.findViewById(R.id.productis);
+
+
 
 
 
