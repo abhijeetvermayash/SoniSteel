@@ -10,7 +10,7 @@ public class OrderDetails {
     private String name;
 
     private String add;
-    private int phone;
+    private long phone;
     private HashMap<String,Integer> hm;
     private int Total;
     private String ModeOfPayment;
@@ -58,11 +58,11 @@ public class OrderDetails {
         this.add = add;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 

@@ -55,14 +55,17 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         holder.total.setText( "" +   orderDetails.getTotal());
         holder.payment.setText(orderDetails.getModeOfPayment());
 
-        HashMap<String,Integer> hm=orderDetails.getHm();
-        //holder.products.setText(hm.toString());
-        Set keys=hm.keySet();
-        for(Iterator i=keys.iterator();i.hasNext();)
+        HashMap<String,Integer> hmt=new HashMap<>();
+        hmt=orderDetails.getHm();
+        //holder.products.setText(hmt.toString());
+
+
+        Set keyare=hmt.keySet();
+        for(Iterator j=keyare.iterator();j.hasNext();)
         {
-            String key=(String)i.next();
-            int value=(Integer)hm.get(key);
-            holder.products.append(key+" -----> "+value+"\n");
+            String keya=(String)j.next();
+            int valuea=(Integer)hmt.get(keya);
+            holder.products.append(keya+" -----> "+valuea+"\n");
         }
 
 

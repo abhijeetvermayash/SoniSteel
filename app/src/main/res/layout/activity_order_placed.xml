@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".OrderPlaced">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thank you\n Your Order has been Placed"/>
+        android:text="Thank you\nYour Order has been Placed\nYou can expect Your Order soon"
+        android:textSize="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
 
 </LinearLayout>

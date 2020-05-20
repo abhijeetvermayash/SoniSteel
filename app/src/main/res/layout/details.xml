@@ -3,10 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="#E3F2FD"
+    android:elevation="40dp"
+    android:layout_marginBottom="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"
+
+
+
     android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
+        android:elevation="20dp"
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +31,10 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
             android:padding="5dp"
             android:id="@+id/txtv1"
             android:text="Name: "
@@ -31,6 +45,10 @@
             android:id="@+id/nameis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed-medium"
+
             android:padding="5dp"
 
             android:text="name" />
@@ -48,6 +66,10 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:padding="5dp"
+          android:textStyle="bold"
+          android:textColor="#000000"
+          android:fontFamily="sans-serif-condensed-medium"
+          android:textSize="20dp"
           android:id="@+id/txtv2"
           android:text="Address:  "
 
@@ -59,6 +81,9 @@
         android:id="@+id/addis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="20dp"
         android:padding="5dp"
         android:text="address" />
   </LinearLayout>
@@ -67,12 +92,17 @@
    <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+
        android:orientation="horizontal">
     <TextView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="20dp"
         android:id="@+id/txtv3"
         android:text="Phone Number: "
 
@@ -83,6 +113,9 @@
         android:id="@+id/phoneis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="20dp"
         android:padding="5dp"
         android:text="phone" />
 
@@ -93,12 +126,20 @@
    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:padding="5dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
             android:id="@+id/oeder"
             android:text="Order Summary"/>
 
@@ -106,8 +147,14 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/oeder"
+
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:id="@+id/productis"/>
+        </RelativeLayout>
 
 
 
@@ -124,6 +171,10 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
             android:padding="5dp"
             android:id="@+id/txtv4"
             android:text="Total Price: "
@@ -135,6 +186,9 @@
         android:id="@+id/totalis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
         android:padding="5dp"
         android:text="totalPrice" />
 
@@ -152,6 +206,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
             android:id="@+id/txtv5"
             android:text="Payment Mode: "
 
@@ -163,6 +221,9 @@
         android:id="@+id/paymentmodeis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
         android:padding="5dp"
         android:text="Payment" />
 

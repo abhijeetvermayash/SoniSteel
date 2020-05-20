@@ -1,10 +1,13 @@
 package com.example.sonisteel;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,10 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton fb;
         fb=findViewById(R.id.fab1);
+        Button btn1,btn2,btn3,btn4;
 
-        final TextView quan1,quan2,quan3;
+        final TextView quan1,quan2,quan3,quan4;
 
-        ImageButton add1,add2,add3,remove1,remove2,remove3;
+        ImageButton add1,add2,add3,add4,
+                remove1,remove2,remove3,remove4;
+
 
 
 
@@ -36,15 +42,24 @@ public class MainActivity extends AppCompatActivity {
         quan1=findViewById(R.id.q1);
         quan2=findViewById(R.id.q2);
         quan3=findViewById(R.id.q3);
+        quan4=findViewById(R.id.q4);
+
 
         add1=findViewById(R.id.add1);
         add2=findViewById(R.id.add2);
         add3=findViewById(R.id.add3);
+        add4=findViewById(R.id.add4);
 
 
         remove1=findViewById(R.id.remove1);
         remove2=findViewById(R.id.remove2);
         remove3=findViewById(R.id.remove3);
+        remove4=findViewById(R.id.remove4);
+
+        btn1=findViewById(R.id.disc1);
+        btn2=findViewById(R.id.disc2);
+        btn3=findViewById(R.id.disc3);
+        btn4=findViewById(R.id.disc4);
 
 
 
@@ -52,6 +67,74 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
+      btn1.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+              builder.setMessage("Discription  "+"\n\n"+"Colour: Silver\n"+"Usage: Home,Hotel/Restaurent\n"+"Number Of Handle: 2\n"+
+              "Material: Stainless Steel\n"+"Finishing: Mirror Polished\n"+"Size: 14 inch\n").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+
+                  }
+              });
+              AlertDialog alertDialog=builder.create();
+              alertDialog.show();
+          }
+      });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Discription  "+"\n\n"+"Size:Set of 5(300ml,550ml,800ml,1100ml,1500ml\n"+"Usage: Home,Hotel/Restaurent\n"+
+                        "Material: Stainless Steel\n"+"Finishing: Mirror Polished\n").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog alertDialog=builder.create();
+                alertDialog.show();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Discription  "+"\n\n"+"Size:Set of 5(10'' to 14'')\n"+"Usage: Home,Hotel/Restaurent\n"+
+                        "Material: Stainless Steel\n"+"Finishing: Mirror Polished\n").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog alertDialog=builder.create();
+                alertDialog.show();
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Discription  "+"\n\n"+"Size:Set of 3(500ml,800ml,1500ml)\n"+"Usage: Home,Hotel/Restaurent\n"+
+                        "Material: Stainless Steel 304\n"+"Finishing: Mirror Polished\n"+"Durable\n").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog alertDialog=builder.create();
+                alertDialog.show();
+            }
+        });
 
 
 
@@ -131,45 +214,48 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        add4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantity4=Integer.parseInt(quan4.getText().toString());
+
+                quantity4=quantity4+1;
+                quan4.setText(Integer.toString(quantity4));
+
+            }
+        });
+
+        remove4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantity4=Integer.parseInt(quan4.getText().toString());
+                if(quantity4>0)
+                    quantity4=quantity4-1;
+                else
+                    quantity4=0;
+                quan3.setText(Integer.toString(quantity4));
+
+            }
+        });
 
 
 
 
 
-fb.setOnClickListener(new View.OnClickListener() {
+
+
+
+        fb.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
-        HashMap<String,Integer> hm=new HashMap<>();
 
-        DatabaseReference dr;
-        dr=FirebaseDatabase.getInstance().getReference().child("CurrentOrder");
-        if(Integer.parseInt(quan1.getText().toString())>0)
-        {
-            CurrentOrder co=new CurrentOrder();
-            hm.put("Stainless Kadhai",Integer.parseInt(quan1.getText().toString()));
-            co.setHashMap(hm);
-            dr.setValue(co);
-        }
-        if(Integer.parseInt(quan2.getText().toString())>0)
-        {
-            CurrentOrder co=new CurrentOrder();
-            hm.put("Set of Tops",Integer.parseInt(quan2.getText().toString()));
-            co.setHashMap(hm);
-            dr.setValue(co);
-        }
-        if(Integer.parseInt(quan3.getText().toString())>0)
-        {
-            CurrentOrder co=new CurrentOrder();
-
-            hm.put("Handi With Copper Base",Integer.parseInt(quan3.getText().toString()));
-            co.setHashMap(hm);
-            dr.setValue(co);
-        }
         Intent i=new Intent(MainActivity.this,Cart.class);
         i.putExtra("STAINLESSKADHAI",Integer.parseInt(quan1.getText().toString()));
         i.putExtra("SETOFTOPS",Integer.parseInt(quan2.getText().toString()));
         i.putExtra("HANDI",Integer.parseInt(quan3.getText().toString()));
+        i.putExtra("SETOFDISH",Integer.parseInt(quan4.getText().toString()));
+
 
 
 

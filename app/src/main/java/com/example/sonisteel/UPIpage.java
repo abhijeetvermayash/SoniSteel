@@ -72,9 +72,10 @@ public class UPIpage extends AppCompatActivity {
                 int noofkadhai = i.getIntExtra("STAINLESSKADHAI", 0);
                 int noofhandi = i.getIntExtra("HANDI", 0);
                 int nooftops = i.getIntExtra("SETOFTOPS", 0);
+                int noofdish = i.getIntExtra("SETOFDISH", 0);
                 String name = i.getStringExtra("NAME");
                 String add = i.getStringExtra("ADDRESS");
-                int phone = i.getIntExtra("PHONE", 0);
+                Long phone = i.getLongExtra("PHONE", 0);
                 int total = i.getIntExtra("TOTALCOST", 0);
 
 
@@ -187,11 +188,12 @@ public class UPIpage extends AppCompatActivity {
                 int noofkadhai = i.getIntExtra("STAINLESSKADHAI", 0);
                 int noofhandi = i.getIntExtra("HANDI", 0);
                 int nooftops = i.getIntExtra("SETOFTOPS", 0);
+                int noofdish = i.getIntExtra("SETOFDISH", 0);
                 String name = i.getStringExtra("NAME");
                 String add = i.getStringExtra("ADDRESS");
-                int phone = i.getIntExtra("PHONE", 0);
+                Long phone = i.getLongExtra("PHONE", 0);
                 int total = i.getIntExtra("TOTALCOST", 0);
-                addToDatabase(noofkadhai,noofhandi,nooftops,name,add,phone,total);
+                addToDatabase(noofkadhai,noofhandi,nooftops,noofdish,name,add,phone,total);
 
             }
             else if("Payment cancelled by user.".equals(paymentCancel)) {
@@ -218,7 +220,7 @@ public class UPIpage extends AppCompatActivity {
         return false;
     }
 
-    public void addToDatabase(int noofkhadai,int noofhandi,int nooftops,String name,String add,int phone,int total)
+    public void addToDatabase(int noofkhadai,int noofhandi,int nooftops,int noofdish,String name,String add,long phone,int total)
 
     {
         DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("OrderDetails");
@@ -233,20 +235,24 @@ public class UPIpage extends AppCompatActivity {
 
                 if(noofkhadai!=0)
                 {
-                    hashMap.put("Stain less Kadhai",noofkhadai);
+                    hashMap.put("Stainless Steel  Kadhai",noofkhadai);
 
                 }
 
                 if(noofhandi!=0)
                 {
-                    hashMap.put("Handi with Copper base",noofhandi);
+                    hashMap.put("Handi with Copper base(Set of 5)",noofhandi);
 
                 }
                 if(nooftops!=0)
                 {
-                    hashMap.put("Set Of Tops",nooftops);
+                    hashMap.put("Stainless Steel Tops(Set of 5)",nooftops);
 
 
+                }
+                if(noofdish!=0)
+                {
+                    hashMap.put("Stainless Steel Dish(Set of 3)",noofdish);
                 }
 
 
