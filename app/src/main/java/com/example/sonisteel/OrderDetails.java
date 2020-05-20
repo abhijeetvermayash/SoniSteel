@@ -8,11 +8,13 @@ import java.util.HashMap;
 public class OrderDetails {
 
     private String name;
+
     private String add;
     private int phone;
     private HashMap<String,Integer> hm;
     private int Total;
     private String ModeOfPayment;
+
 
 
     public String getModeOfPayment() {

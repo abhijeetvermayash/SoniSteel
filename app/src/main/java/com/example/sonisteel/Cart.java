@@ -150,7 +150,12 @@ public class Cart extends AppCompatActivity {
                 if(cod.isChecked())
                 {
                     orderDetails.setModeOfPayment("Cash On Delivery");
+
                     dr.push().setValue(orderDetails);
+
+
+                    DatabaseReference dr1=FirebaseDatabase.getInstance().getReference().child("OrderDetailsForFutureReference");
+                    dr1.push().setValue(orderDetails);
 
                     Intent i=new Intent(Cart.this,OrderPlaced.class);
                     startActivity(i);

@@ -50,12 +50,23 @@ public class UPIpage extends AppCompatActivity {
 
 
 
+        Intent i = getIntent();
+
+        int total = i.getIntExtra("TOTALCOST", 0);
+        textView.setText(Integer.toString(total));
+
+
+
+
+
+
 
 
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i = getIntent();
 
                 int noofkadhai = i.getIntExtra("STAINLESSKADHAI", 0);
@@ -65,8 +76,16 @@ public class UPIpage extends AppCompatActivity {
                 String add = i.getStringExtra("ADDRESS");
                 int phone = i.getIntExtra("PHONE", 0);
                 int total = i.getIntExtra("TOTALCOST", 0);
-                DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("OrderDetails");
-                payUsingUpi("0", id.getText().toString(), name, msg.getText().toString());
+
+
+
+
+
+
+
+
+                payUsingUpi(Integer.toString(total), id.getText().toString(), name, msg.getText().toString());
+
             }
         });
     }
@@ -74,11 +93,12 @@ public class UPIpage extends AppCompatActivity {
 
     void payUsingUpi(String amount, String upiId, String name, String note) {
 
+
         Uri uri = Uri.parse("upi://pay").buildUpon()
                 .appendQueryParameter("pa", upiId)
                 .appendQueryParameter("pn", name)
                 .appendQueryParameter("tn", note)
-                .appendQueryParameter("am", amount)
+                .appendQueryParameter("am", amount)     //add "1" here to check transaction by paying just 1 rs.
                 .appendQueryParameter("tr","261433")
                 .appendQueryParameter("cu", "INR")
                 .build();
@@ -86,6 +106,7 @@ public class UPIpage extends AppCompatActivity {
 
         Intent upiPayIntent = new Intent(Intent.ACTION_VIEW);
         upiPayIntent.setData(uri);
+
 
         // will always show a dialog to user to choose an app
         Intent chooser = Intent.createChooser(upiPayIntent, "Pay with");
@@ -161,6 +182,17 @@ public class UPIpage extends AppCompatActivity {
                 //Code to handle successful transaction here.
                 Toast.makeText(UPIpage.this, "Transaction successful.", Toast.LENGTH_SHORT).show();
                 Log.d("UPI", "responseStr: "+approvalRefNo);
+                Intent i = getIntent();
+
+                int noofkadhai = i.getIntExtra("STAINLESSKADHAI", 0);
+                int noofhandi = i.getIntExtra("HANDI", 0);
+                int nooftops = i.getIntExtra("SETOFTOPS", 0);
+                String name = i.getStringExtra("NAME");
+                String add = i.getStringExtra("ADDRESS");
+                int phone = i.getIntExtra("PHONE", 0);
+                int total = i.getIntExtra("TOTALCOST", 0);
+                addToDatabase(noofkadhai,noofhandi,nooftops,name,add,phone,total);
+
             }
             else if("Payment cancelled by user.".equals(paymentCancel)) {
                 Toast.makeText(UPIpage.this, "Payment cancelled by user.", Toast.LENGTH_SHORT).show();
@@ -186,37 +218,11 @@ public class UPIpage extends AppCompatActivity {
         return false;
     }
 
+    public void addToDatabase(int noofkhadai,int noofhandi,int nooftops,String name,String add,int phone,int total)
 
+    {
+        DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("OrderDetails");
 
-
-
-
-
-
-
-
-
-
-
-        //textView.setText(Integer.toString(total));
-        //.appendQueryParameter("am", Integer.toString(total))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 /*int a=0;
                 OrderDetails orderDetails=new OrderDetails();
                 orderDetails.setName(name);
                 orderDetails.setAdd(add);
@@ -225,9 +231,9 @@ public class UPIpage extends AppCompatActivity {
                 HashMap<String,Integer> hashMap=new HashMap<>();
 
 
-                if(noofkadhai!=0)
+                if(noofkhadai!=0)
                 {
-                    hashMap.put("Stain less Kadhai",noofhandi);
+                    hashMap.put("Stain less Kadhai",noofkhadai);
 
                 }
 
@@ -247,22 +253,14 @@ public class UPIpage extends AppCompatActivity {
                 orderDetails.setHm(hashMap);
                 orderDetails.setTotal(total);
                 orderDetails.setModeOfPayment("Payement Through UPI");
+
                 dr.push().setValue(orderDetails);
+                DatabaseReference dr1=FirebaseDatabase.getInstance().getReference().child("OrderDetailsForFutureReference");
+                dr1.push().setValue(orderDetails);
 
                 Intent i=new Intent(UPIpage.this,OrderPlaced.class);
-                startActivity(i); */
-
-
-
-
-
-
-
-
-
-
-
-
+                startActivity(i);
+    }
 
 
 }
